@@ -1,0 +1,26 @@
+Sub atualizacao_planilha()
+    
+    tentar_fechar_personal
+    Caminho = "---CAMINHO INICIAL---"
+    Dim uauario As String
+    usuario = Range("B1").Value
+    arquivo = "mestre.xlsm"
+    caminho_final = Caminho & "\" & arquivo
+    If Len(caminho_final) > 0 Then
+    MsgBox ("Atualizando Programa...")
+    FileCopy Caminho & "\" & arquivo, "C:\Users\" & usuario & "\AppData\Roaming\Microsoft\Excel\XLSTART" & "\" & "PERSONALBKP.xlsm"
+    
+    Else
+    MsgBox ("Programa não atualizado, Verificar com o programador")
+    
+    End If
+    
+End Sub
+
+Sub tentar_fechar_personal()
+
+On Error Resume Next
+Application.Workbooks("PERSONALBKP.xlsm").Close
+On Error Resume Next
+
+End Sub
